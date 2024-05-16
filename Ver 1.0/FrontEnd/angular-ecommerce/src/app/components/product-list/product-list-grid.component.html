@@ -8,21 +8,21 @@
 
                     <div class="product-box">
 
-                        <a routerLink="/products/{{tempProduct.id}}">
-                            <img src="{{tempProduct.imageUrl}}" class="img-responsive">
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
                         </a>
-                        <a routerLink="/products/{{tempProduct.id}}">
-                            <h1>{{tempProduct.name}}</h1>
+
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <h1>{{ tempProduct.name }}</h1>
                         </a>
                         
-                        <div class="price">{{tempProduct.unitPrice | currency:'USD'}}</div>
+                        <div class="price">{{ tempProduct.unitPrice | currency:'USD' }}</div>
                         <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to cart</button>
-                        
                     </div>
 
                 </div>
 
-                <!-- If products is empty then -->
+                <!-- if products empty then display a message-->
                 <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
                     No products found.
                 </div>
@@ -32,18 +32,19 @@
             <!-- begin footer -->
             <div class="footer-pagination">
                 <div class="row">
-                    <div class="col-m-6"></div>
+                    <div class="col-md-6"></div>
 
-                    <div class="col-m-6">
+                    <div class="col-md-6">
                         <div class="row">
-                            <div clas="col-md-9" style="padding-left: 30%">
+                            <div class="col-md-9" style="padding-left: 30%">
+                            
+                                <ngb-pagination [(page)]="thePageNumber"
+                                                [pageSize]="thePageSize"
+                                                [collectionSize]="theTotalElements"
+                                                [maxSize]="5"
+                                                [boundaryLinks]="true"
+                                                (pageChange)="listProducts()">
 
-                                <ngb-pagination
-                                    [(page)]="thePageNumber"
-                                    [pageSize]="thePageSize"
-                                    [collectionSize]="theTotalElements"
-                                    [maxSize]="3"
-                                    (pageChange)="listProducts()">
                                 </ngb-pagination>
 
                             </div>
@@ -60,6 +61,7 @@
 
                         </div>
                     </div>
+
                 </div>
             </div>
             <!-- end footer -->
@@ -67,3 +69,9 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
