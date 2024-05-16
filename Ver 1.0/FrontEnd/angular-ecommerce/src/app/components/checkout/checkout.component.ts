@@ -130,9 +130,6 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-    this.resetCart();
-    return;
-
     //set up Order
     let order = new Order();
     order.totalPrice = this.totalPrice;
