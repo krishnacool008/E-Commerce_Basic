@@ -17,12 +17,12 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 @Service
-public class CheckoutServiceImp implements CheckoutService {
+public class CheckoutServiceImpl implements CheckoutService {
 
     private CustomerRepository customerRepository;
 
-    public CheckoutServiceImp(CustomerRepository customerRepository,
-                               @Value("${stripe.key.secret}") String secretKey) {
+    public CheckoutServiceImpl(CustomerRepository customerRepository,
+                              @Value("${stripe.key.secret}") String secretKey) {
 
         this.customerRepository = customerRepository;
 
